@@ -12,14 +12,26 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.tourtle.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_forum"
+        android:name="com.example.tourtle.ui.forum.ForumFragment"
+        android:label="@string/title_forum"
+        tools:layout="@layout/fragment_forum" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.tourtle.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_smart_camera"
+        android:name="com.example.tourtle.ui.smart_camera.SmartCameraFragment"
+        android:label="@string/title_smart_camera"
+        tools:layout="@layout/fragment_smart_camera" />
+
+    <fragment
+        android:id="@+id/navigation_my_journey"
+        android:name="com.example.tourtle.ui.my_journey.MyJourneyFragment"
+        android:label="@string/title_my_journey"
+        tools:layout="@layout/fragment_my_journey" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.example.tourtle.ui.profile.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>

@@ -1,4 +1,4 @@
-package com.example.tourtle.ui.dashboard
+package com.example.tourtle.ui.smart_camera
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.tourtle.databinding.FragmentDashboardBinding
+import com.example.tourtle.databinding.FragmentSmartCameraBinding
 
-class DashboardFragment : Fragment() {
+class SmartCameraFragment : Fragment() {
 
-    private var _binding: FragmentDashboardBinding? = null
+    private var _binding: FragmentSmartCameraBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -22,14 +22,14 @@ class DashboardFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val dashboardViewModel =
-            ViewModelProvider(this).get(DashboardViewModel::class.java)
+        val smartCameraViewModel =
+            ViewModelProvider(this).get(SmartCameraViewModel::class.java)
 
-        _binding = FragmentDashboardBinding.inflate(inflater, container, false)
+        _binding = FragmentSmartCameraBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textDashboard
-        dashboardViewModel.text.observe(viewLifecycleOwner) {
+        val textView: TextView = binding.textNotifications
+        smartCameraViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
         return root
