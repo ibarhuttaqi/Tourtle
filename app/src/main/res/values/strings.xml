@@ -15,4 +15,7 @@
     <string name="password">Password</string>
     <string name="message_login_page">Masukkan dulu datamu ya</string>
     <string name="title_login_page">Sudah siap untuk Travelling dengan teman travelmu?</string>
+    <string name="masukkan_nama">Masukkan Nama</string>
+    <string name="name">Nama</string>
+    <string name="logout">Logout</string>
 </resources>

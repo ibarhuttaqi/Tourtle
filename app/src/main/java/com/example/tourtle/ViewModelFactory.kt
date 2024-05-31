@@ -7,6 +7,7 @@ import com.example.tourtle.data.repository.UserRepository
 import com.example.tourtle.di.Injection
 import com.example.tourtle.ui.home.HomeViewModel
 import com.example.tourtle.ui.login.LoginViewModel
+import com.example.tourtle.ui.profile.ProfileViewModel
 
 class ViewModelFactory(
     private val userRepository: UserRepository,
@@ -20,6 +21,9 @@ class ViewModelFactory(
             }
             modelClass.isAssignableFrom(LoginViewModel::class.java) -> {
                 LoginViewModel(userRepository) as T
+            }
+            modelClass.isAssignableFrom(ProfileViewModel::class.java) -> {
+                ProfileViewModel(userRepository) as T
             }
 //            modelClass.isAssignableFrom(DetailViewModel::class.java) -> {
 //                DetailViewModel(userRepository, storyRepository) as T

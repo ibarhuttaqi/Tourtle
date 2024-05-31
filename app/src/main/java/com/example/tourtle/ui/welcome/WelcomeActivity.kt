@@ -13,6 +13,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.tourtle.R
 import com.example.tourtle.databinding.ActivityWelcomeBinding
 import com.example.tourtle.ui.login.LoginActivity
+import com.example.tourtle.ui.register.RegisterActivity
 
 class WelcomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityWelcomeBinding
@@ -52,8 +53,7 @@ class WelcomeActivity : AppCompatActivity() {
         }
 
         binding.signupButton.setOnClickListener {
-//            startActivity(Intent(this, SignupActivity::class.java))
-            Toast.makeText(this, "Fitur belum tersedia", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, RegisterActivity::class.java))
         }
     }
 }

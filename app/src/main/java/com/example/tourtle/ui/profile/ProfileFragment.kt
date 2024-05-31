@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.example.tourtle.R
+import com.example.tourtle.ViewModelFactory
 import com.example.tourtle.databinding.FragmentProfileBinding
 
 class ProfileFragment : Fragment() {
@@ -18,7 +19,9 @@ class ProfileFragment : Fragment() {
 
     private lateinit var _binding: FragmentProfileBinding
     private val binding get() = _binding
-    private val viewModel: ProfileViewModel by viewModels()
+    private val viewModel by viewModels<ProfileViewModel> {
+        ViewModelFactory.getInstance(requireContext())
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +38,10 @@ class ProfileFragment : Fragment() {
         val textView: TextView = binding.textHome
         viewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
+        }
+
+        binding.logoutButton.setOnClickListener {
+            viewModel.logout()
         }
 
         return root
