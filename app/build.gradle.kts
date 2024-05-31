@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("com.google.devtools.ksp")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -67,5 +69,16 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.ktx) //untuk lifecycleScope
 
     // data store
-    implementation("androidx.datastore:datastore-preferences:1.0.0")
+    implementation(libs.androidx.datastore.preferences)
+
+    // glide
+    implementation(libs.glide)
+
+    //paging3
+    implementation(libs.androidx.paging.runtime.ktx)
+
+    //room utk paging
+    implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.room.paging)
+    ksp(libs.androidx.room.compiler)
 }

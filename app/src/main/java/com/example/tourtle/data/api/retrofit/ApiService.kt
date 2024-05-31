@@ -1,5 +1,6 @@
 package com.example.tourtle.data.api.retrofit
 
+import com.example.tourtle.data.api.response.ForumResponse
 import com.example.tourtle.data.api.response.LoginResponse
 import com.example.tourtle.data.api.response.RegisterResponse
 import okhttp3.MultipartBody
@@ -13,6 +14,7 @@ import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.Part
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface ApiService {
 
@@ -31,11 +33,12 @@ interface ApiService {
         @Field("password") password: String
     ): LoginResponse
 
-//    @GET("stories")
-//    fun getStories(
-//        @Header("Authorization") token: String,
-//    ): Call<StoryResponse>
-//
+    @GET("stories")
+    suspend fun getForum(
+        @Query("page") page: Int = 1,
+        @Query("size") size: Int = 20
+    ): ForumResponse
+
 //    @GET("stories/{id}")
 //    fun getDetail(
 //        @Header("Authorization") token: String,

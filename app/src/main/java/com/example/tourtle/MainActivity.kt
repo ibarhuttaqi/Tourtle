@@ -2,6 +2,7 @@ package com.example.tourtle
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -45,6 +46,8 @@ class MainActivity : AppCompatActivity() {
                 finish()
             } else {
                 viewModel.setToken(user.token)
+                val token = viewModel.token.value
+                Log.d("LOGINTOKEN main activity", "Token: $token")
                 viewModel.token.observe(this) { token ->
                     if (token.isNotEmpty()) {
 //                        observeStories(token) // Call observeStories with the token
