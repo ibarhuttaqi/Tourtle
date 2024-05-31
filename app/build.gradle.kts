@@ -15,6 +15,8 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "BASE_URL", "\"https://story-api.dicoding.dev/v1/\"")
     }
 
     buildTypes {
@@ -35,6 +37,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 }
 
@@ -51,7 +54,18 @@ dependencies {
     implementation(libs.androidx.legacy.support.v4)
     implementation(libs.androidx.recyclerview)
     implementation(libs.androidx.fragment.ktx)
+    implementation(libs.androidx.activity)
+    implementation(libs.androidx.datastore.core.android)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    // retrofit
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+    implementation(libs.logging.interceptor)
+    implementation(libs.androidx.lifecycle.runtime.ktx) //untuk lifecycleScope
+
+    // data store
+    implementation("androidx.datastore:datastore-preferences:1.0.0")
 }

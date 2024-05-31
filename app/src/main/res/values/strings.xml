@@ -5,4 +5,14 @@
     <string name="title_smart_camera">Smart Camera</string>
     <string name="title_my_journey">My Journey</string>
     <string name="title_profile">Profile</string>
+
+    <string name="signup">Daftar</string>
+    <string name="login">Masuk</string>
+    <string name="message_welcome_page">Temukan teman Travelmu dan jelajah bersama-sama!</string>
+    <string name="title_welcome_page">Selamat datang di Tourtle!</string>
+    <string name="title_signup_page">Lengkapi data dirimu di bawah ini ya</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="message_login_page">Masukkan dulu datamu ya</string>
+    <string name="title_login_page">Sudah siap untuk Travelling dengan teman travelmu?</string>
 </resources>
