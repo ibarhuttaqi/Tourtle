@@ -1,12 +1,17 @@
 package com.example.tourtle.ui.register
 
+import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.text.Editable
+import android.text.Spannable
+import android.text.SpannableString
 import android.text.TextWatcher
+import android.text.style.ForegroundColorSpan
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
@@ -52,6 +57,20 @@ private lateinit var binding: ActivityRegisterBinding
                 // Do nothing.
             }
         })
+
+        val loginTextView: TextView = findViewById(R.id.registerTextView)
+        val text = "Sudah mempunyai akun? Masuk"
+        val spannable = SpannableString(text)
+
+        // Set color for "Sudah mempunyai akun?" to black
+        val blackSpan = ForegroundColorSpan(Color.BLACK)
+        spannable.setSpan(blackSpan, 0, 20, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+
+        // Set color for "Masuk" to blue
+        val blueSpan = ForegroundColorSpan(Color.BLUE)
+        spannable.setSpan(blueSpan, 21, text.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+
+        loginTextView.text = spannable
 
         setupView()
         setupAction()
