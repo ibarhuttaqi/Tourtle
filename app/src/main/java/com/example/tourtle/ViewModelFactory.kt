@@ -10,10 +10,13 @@ import com.example.tourtle.ui.forum.ForumViewModel
 import com.example.tourtle.ui.home.HomeViewModel
 import com.example.tourtle.ui.login.LoginViewModel
 import com.example.tourtle.ui.profile.ProfileViewModel
+import com.example.tourtle.ui.splash.ThemePreferences
+import com.example.tourtle.ui.splash.ThemeViewModel
 
 class ViewModelFactory(
     private val userRepository: UserRepository,
     private val forumRepository: ForumRepository,
+    private val themePreferences: ThemePreferences
 ) : ViewModelProvider.NewInstanceFactory() {
 
     @Suppress("UNCHECKED_CAST")
@@ -31,6 +34,9 @@ class ViewModelFactory(
             modelClass.isAssignableFrom(ForumViewModel::class.java) -> {
                 ForumViewModel(userRepository, forumRepository) as T
             }
+            modelClass.isAssignableFrom(ThemeViewModel::class.java) -> {
+                ThemeViewModel(themePreferences) as T
+            }
 //            modelClass.isAssignableFrom(DetailViewModel::class.java) -> {
 //                DetailViewModel(userRepository, storyRepository) as T
 //            }
@@ -47,7 +53,8 @@ class ViewModelFactory(
                 synchronized(ViewModelFactory::class.java) {
                     val userRepository = Injection.provideUserRepository(context)
                     val forumRepository = Injection.provideForumRepository(context)
-                    INSTANCE = ViewModelFactory(userRepository, forumRepository)
+                    val themePreferences = ThemePreferences.getInstance(context)
+                    INSTANCE = ViewModelFactory(userRepository, forumRepository, themePreferences)
                 }
             }
             return INSTANCE as ViewModelFactory
