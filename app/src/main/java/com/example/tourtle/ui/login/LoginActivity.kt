@@ -3,17 +3,23 @@ package com.example.tourtle.ui.login
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.content.Intent
+import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.tourtle.MainActivity
+import com.example.tourtle.R
 import com.example.tourtle.ViewModelFactory
 import com.example.tourtle.data.api.response.LoginResponse
 import com.example.tourtle.data.pref.UserModel
@@ -37,6 +43,19 @@ class LoginActivity : AppCompatActivity() {
         setupAction()
 //        playAnimation()
 
+        val registerTextView: TextView = findViewById(R.id.registerTextView)
+        val text = "Belum mempunyai akun? Daftar"
+        val spannable = SpannableString(text)
+
+        // Set color for "Belum mempunyai akun?" to black
+        val blackSpan = ForegroundColorSpan(Color.BLACK)
+        spannable.setSpan(blackSpan, 0, 20, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+
+        // Set color for "Daftar" to blue
+        val blueSpan = ForegroundColorSpan(Color.BLUE)
+        spannable.setSpan(blueSpan, 21, text.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+
+        registerTextView.text = spannable
     }
 
 //    private fun playAnimation() {
