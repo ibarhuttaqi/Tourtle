@@ -1,14 +1,17 @@
 package com.example.tourtle.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tourtle.R
 import com.example.tourtle.databinding.FragmentHomeBinding
+import com.example.tourtle.ui.home.destination.DestinationFragment
 import com.google.android.material.tabs.TabLayoutMediator
 
 class HomeFragment : Fragment() {
@@ -77,7 +80,16 @@ class HomeFragment : Fragment() {
         val recyclerViewArticles = binding.recyclerViewArticles
         recyclerViewArticles.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         recyclerViewArticles.adapter = ArticleAdapter(articleList)
+
+        setupAction()
+
         return root
+    }
+
+    private fun setupAction() {
+        binding.menuDestination.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_destinationFragment)
+        }
     }
 
     override fun onDestroyView() {

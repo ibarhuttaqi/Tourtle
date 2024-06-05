@@ -28,4 +28,6 @@
     <string name="title_menu_3">Kembangkan UMKM</string>
     <string name="desc_menu_3">"Berbelanja dan berburu oleh-oleh dari UMKM lokal dan bantu kembangkan potensi masyarakat. "</string>
     <string name="title_menu_4">Ayo mulai!\nSambut pengalaman baru perjalanan yang lebih mudah dan menyenangkan</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
