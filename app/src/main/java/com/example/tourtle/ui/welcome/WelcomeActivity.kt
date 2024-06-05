@@ -1,8 +1,10 @@
 package com.example.tourtle.ui.welcome
 
+import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Toast
@@ -31,7 +33,9 @@ class WelcomeActivity : AppCompatActivity() {
 
         setupView()
         setupAction()
+        playAnimation()
         Toast.makeText(this, "WELCOMEEEEE", Toast.LENGTH_LONG).show()
+
     }
 
     private fun setupView() {
@@ -54,6 +58,17 @@ class WelcomeActivity : AppCompatActivity() {
 
         binding.signupButton.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
+        }
+    }
+
+    private fun playAnimation() {
+        val menuLogos = listOf(binding.logoMenu1, binding.logoMenu2, binding.logoMenu3, binding.logoMenu4)
+        menuLogos.forEach { menuLogo ->
+            ObjectAnimator.ofFloat(menuLogo, View.TRANSLATION_X, -50f, 50f).apply {
+                duration = 6000
+                repeatCount = ObjectAnimator.INFINITE
+                repeatMode = ObjectAnimator.REVERSE
+            }.start()
         }
     }
 }

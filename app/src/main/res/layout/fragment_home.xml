@@ -112,7 +112,7 @@
                                 android:layout_width="32dp"
                                 android:layout_height="32dp"
                                 android:layout_gravity="center"
-                                android:src="@drawable/destination" />
+                                android:src="@drawable/ic_destination" />
 
                         </FrameLayout>
 
@@ -148,7 +148,7 @@
                                 android:layout_width="32dp"
                                 android:layout_height="32dp"
                                 android:layout_gravity="center"
-                                android:src="@drawable/tourguide" />
+                                android:src="@drawable/ic_tourguide" />
 
                         </FrameLayout>
 
@@ -220,7 +220,7 @@
                                 android:layout_width="32dp"
                                 android:layout_height="32dp"
                                 android:layout_gravity="center"
-                                android:src="@drawable/homestay" />
+                                android:src="@drawable/ic_homestay" />
 
                         </FrameLayout>
 
