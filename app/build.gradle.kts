@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     id("com.google.devtools.ksp")
     id("kotlin-parcelize")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -87,4 +88,16 @@ dependencies {
 
     //view pager2
     implementation(libs.androidx.viewpager2)
+
+    // dependency cameraX
+    implementation(libs.androidx.camera.camera2)
+    implementation(libs.androidx.camera.lifecycle)
+    implementation(libs.androidx.camera.view)
+
+    // navigation
+    implementation(libs.androidx.navigation.fragment.ktx.v277)
+    implementation(libs.androidx.navigation.ui.ktx.v277)
+
+    // membaca EXIF untuk konfigurasi dan membaca data rotasi file foto
+    implementation("androidx.exifinterface:exifinterface:1.3.7")
 }

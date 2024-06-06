@@ -35,7 +35,25 @@
         android:id="@+id/navigation_smart_camera"
         android:name="com.example.tourtle.ui.smart_camera.SmartCameraFragment"
         android:label="@string/title_smart_camera"
-        tools:layout="@layout/fragment_smart_camera" />
+        tools:layout="@layout/fragment_smart_camera">
+        <action
+            android:id="@+id/action_smartCameraFragment_to_photoPreviewFragment"
+            app:destination="@id/photoPreviewFragment"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_left"
+            app:popEnterAnim="@anim/enter_from_left"
+            app:popExitAnim="@anim/exit_to_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/photoPreviewFragment"
+        android:name="com.example.tourtle.ui.smart_camera.photo_preview.PhotoPreviewFragment"
+        android:label="Photo Preview"
+        tools:layout="@layout/fragment_photo_preview">
+        <argument
+            android:name="photoUri"
+            app:argType="string" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_my_journey"
