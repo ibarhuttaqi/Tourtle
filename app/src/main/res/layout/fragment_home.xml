@@ -74,13 +74,13 @@
                 android:orientation="vertical"
                 android:padding="16dp">
 
-            <SearchView
-                android:id="@+id/searchView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:queryHint="Cari sesuatu..."
-                android:background="@drawable/search_background"
-                android:iconifiedByDefault="false" />
+                <SearchView
+                    android:id="@+id/searchView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:queryHint="Cari sesuatu..."
+                    android:background="@drawable/search_background"
+                    android:iconifiedByDefault="false" />
 
                 <LinearLayout
                     android:layout_width="match_parent"

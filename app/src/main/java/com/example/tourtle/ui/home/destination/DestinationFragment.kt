@@ -6,10 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.tourtle.R
 import com.example.tourtle.databinding.FragmentDestinationBinding
 import com.google.android.material.tabs.TabLayoutMediator
+
+data class Destination(
+    val name: String,
+    val location: String,
+    val hours: String,
+    val price: String,
+    val imageResId: Int
+)
 
 class DestinationFragment : Fragment() {
 
@@ -27,14 +36,24 @@ class DestinationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val tabTitles = listOf("Semua", "Wisata", "Kuliner", "Rekomendasi")
+        // Setup RecyclerView
+        binding.destinationRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        val adapter = DestinationAdapter(getDummyDestinations())
+        binding.destinationRecyclerView.adapter = adapter
 
-//        val adapter = ViewPagerAdapter(requireActivity())
-//        binding.viewPager.adapter = adapter
-//
-//        TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
-//            tab.text = tabTitles[position]
-//        }.attach()
+        // Handle back button
+        binding.backButton.setOnClickListener {
+            activity?.onBackPressed()
+        }
+    }
+
+    private fun getDummyDestinations(): List<Destination> {
+        // Replace this with actual data retrieval logic
+        return listOf(
+            Destination("Hawaii Waterpark", "Kota Malang, Jawa Timur", "09.00 - 17.00 WIB", "mulai Rp 90.000", R.drawable.destination1),
+            Destination("Sego Sambel Cak Uut", "Kota Malang, Jawa Timur", "09.00 - 21.00 WIB", "mulai Rp 6.000", R.drawable.destination2)
+            // Add more dummy destinations here
+        )
     }
 
     override fun onDestroyView() {
@@ -42,20 +61,3 @@ class DestinationFragment : Fragment() {
         _binding = null
     }
 }
-
-//class ViewPagerAdapter(fragmentActivity: FragmentActivity) : FragmentStateAdapter(fragmentActivity) {
-//    private val fragmentList = listOf(
-//        AllDestinationsFragment(),
-//        TourismFragment(),
-//        CulinaryFragment(),
-//        RecommendationFragment()
-//    )
-//
-//    override fun getItemCount(): Int {
-//        return fragmentList.size
-//    }
-//
-//    override fun createFragment(position: Int): Fragment {
-//        return fragmentList[position]
-//    }
-//}

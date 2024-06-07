@@ -77,6 +77,7 @@ dependencies {
 
     // glide
     implementation(libs.glide)
+    annotationProcessor(libs.compiler)
 
     //paging3
     implementation(libs.androidx.paging.runtime.ktx)
@@ -99,5 +100,6 @@ dependencies {
     implementation(libs.androidx.navigation.ui.ktx.v277)
 
     // membaca EXIF untuk konfigurasi dan membaca data rotasi file foto
-    implementation("androidx.exifinterface:exifinterface:1.3.7")
+    implementation(libs.androidx.exifinterface)
+
 }
