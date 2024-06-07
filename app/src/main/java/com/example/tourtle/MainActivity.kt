@@ -43,20 +43,29 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
+        // melakukan penyesuaian tab yang aktif akan mengikuti parent fragment saat child fragment diklik
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            when (destination.id) {
+                R.id.destinationFragment -> navView.menu.findItem(R.id.navigation_home).isChecked = true
+                R.id.photoPreviewFragment -> navView.menu.findItem(R.id.navigation_smart_camera).isChecked = true
+                else -> navView.menu.findItem(destination.id).isChecked = true
+            }
+        }
+
         viewModel.getSession().observe(this) { user ->
             if (!user.isLogin) {
                 startActivity(Intent(this, WelcomeActivity::class.java))
                 finish()
             } else {
                 viewModel.setToken(user.token)
-                val token = viewModel.token.value
-                Log.d("LOGINTOKEN main activity", "Token: $token")
-                viewModel.token.observe(this) { token ->
-                    if (token.isNotEmpty()) {
-//                        observeStories(token) // Call observeStories with the token
-                        Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
-                    }
-                }
+//                val token = viewModel.token.value
+//                Log.d("LOGINTOKEN main activity", "Token: $token")
+//                viewModel.token.observe(this) { token ->
+//                    if (token.isNotEmpty()) {
+////                        observeStories(token) // Call observeStories with the token
+//                        Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
+//                    }
+//                }
 
             }
         }

@@ -10,24 +10,33 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
 import com.example.tourtle.MainActivity
+import com.example.tourtle.MainViewModel
 import com.example.tourtle.R
 import com.example.tourtle.ViewModelFactory
 import com.example.tourtle.databinding.ActivitySplashBinding
+import com.example.tourtle.ui.welcome.WelcomeActivity
 import kotlin.random.Random
 
 class SplashActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySplashBinding
     private lateinit var mediaPlayer: MediaPlayer
+
+    private val viewModel by viewModels<MainViewModel> {
+        ViewModelFactory.getInstance(this)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -60,9 +69,27 @@ class SplashActivity : AppCompatActivity() {
 
         // Tunda selama 3 detik
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this@SplashActivity, MainActivity::class.java)
-            startActivity(intent)
-            finish()
+            viewModel.getSession().observe(this) { user ->
+                if (!user.isLogin) {
+                    startActivity(Intent(this, WelcomeActivity::class.java))
+                    finish()
+                } else {
+                    viewModel.setToken(user.token)
+                    val token = viewModel.token.value
+                    Log.d("LOGINTOKEN main activity", "Token: $token")
+
+                    viewModel.token.observe(this) { token ->
+                        if (token.isNotEmpty()) {
+    //                        observeStories(token) // Call observeStories with the token
+                            Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
+                            startActivity(Intent(this, MainActivity::class.java))
+                        }
+                    }
+                }
+            }
+//            val intent = Intent(this@SplashActivity, MainActivity::class.java)
+//            startActivity(intent)
+//            finish()
         }, 2000)
 
         setupView()
