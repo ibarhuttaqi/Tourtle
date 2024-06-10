@@ -71,4 +71,9 @@ class WelcomeActivity : AppCompatActivity() {
             }.start()
         }
     }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finishAffinity() // This will close all activities and exit the app
+    }
 }

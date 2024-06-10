@@ -244,4 +244,9 @@ class SplashActivity : AppCompatActivity() {
         }
         supportActionBar?.hide()
     }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finishAffinity() // This will close all activities and exit the app
+    }
 }

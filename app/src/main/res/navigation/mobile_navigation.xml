@@ -11,8 +11,15 @@
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_homeFragment_to_destinationFragment"
-            app:destination="@id/destinationFragment"
+            android:id="@+id/action_navigation_home_to_navigation_destination"
+            app:destination="@id/navigation_destination"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_left"
+            app:popEnterAnim="@anim/enter_from_left"
+            app:popExitAnim="@anim/exit_to_right" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_tour_guide"
+            app:destination="@id/navigation_tour_guide"
             app:enterAnim="@anim/enter_from_right"
             app:exitAnim="@anim/exit_to_left"
             app:popEnterAnim="@anim/enter_from_left"
@@ -20,10 +27,16 @@
     </fragment>
 
     <fragment
-        android:id="@+id/destinationFragment"
+        android:id="@+id/navigation_destination"
         android:name="com.example.tourtle.ui.home.destination.DestinationFragment"
         android:label="DestinationFragment"
         tools:layout="@layout/fragment_destination" />
+
+    <fragment
+        android:id="@+id/navigation_tour_guide"
+        android:name="com.example.tourtle.ui.home.tour_guide.TourGuideFragment"
+        android:label="Pemandu"
+        tools:layout="@layout/fragment_tour_guide" />
 
     <fragment
         android:id="@+id/navigation_forum"

@@ -43,7 +43,7 @@ class DestinationFragment : Fragment() {
 
         // Handle back button
         binding.backButton.setOnClickListener {
-            activity?.onBackPressed()
+            parentFragmentManager.popBackStack()
         }
     }
 

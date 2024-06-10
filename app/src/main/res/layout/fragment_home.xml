@@ -89,6 +89,43 @@
 
                     <!-- Ikon pertama -->
                     <LinearLayout
+                        android:id="@+id/menu_tourguide"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_margin="8dp">
+
+                        <FrameLayout
+                            android:layout_width="64dp"
+                            android:layout_height="64dp">
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/circle_background_yellow" />
+
+                            <ImageView
+                                android:id="@+id/icon2"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_tourguide" />
+
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Pemandu"
+                            android:gravity="center"
+                            android:layout_marginTop="8dp"/>
+
+                    </LinearLayout>
+
+                    <!-- Ikon kedua -->
+                    <LinearLayout
                         android:id="@+id/menu_destination"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -119,42 +156,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Destinasi"
-                            android:gravity="center"
-                            android:layout_marginTop="8dp"/>
-
-                    </LinearLayout>
-
-                    <!-- Ikon kedua -->
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:layout_margin="8dp">
-
-                        <FrameLayout
-                            android:layout_width="64dp"
-                            android:layout_height="64dp">
-
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:background="@drawable/circle_background_yellow" />
-
-                            <ImageView
-                                android:id="@+id/icon2"
-                                android:layout_width="32dp"
-                                android:layout_height="32dp"
-                                android:layout_gravity="center"
-                                android:src="@drawable/ic_tourguide" />
-
-                        </FrameLayout>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Pemandu"
                             android:gravity="center"
                             android:layout_marginTop="8dp"/>
 
@@ -328,41 +329,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- RecyclerView for Recommended Destinations -->
-        <TextView
-            android:id="@+id/recommendationTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Rekomendasi Wisata"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="16dp"
-            app:layout_constraintTop_toBottomOf="@id/viewPager"
-            app:layout_constraintStart_toStartOf="parent"/>
-
-        <TextView
-            android:id="@+id/seeAllRecommendationText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Lihat Semua >"
-            android:textSize="14sp"
-            android:textColor="@android:color/darker_gray"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintTop_toBottomOf="@id/viewPager"
-            app:layout_constraintEnd_toEndOf="parent"/>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/recommendationTitle"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-
         <!-- RecyclerView for Tour Guides -->
         <TextView
             android:id="@+id/tourGuideTitle"
@@ -373,7 +339,7 @@
             android:textStyle="bold"
             android:layout_marginTop="16dp"
             android:layout_marginStart="16dp"
-            app:layout_constraintTop_toBottomOf="@id/recyclerView"
+            app:layout_constraintTop_toBottomOf="@id/viewPager"
             app:layout_constraintStart_toStartOf="parent"/>
 
         <TextView
@@ -385,7 +351,7 @@
             android:textColor="@android:color/darker_gray"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            app:layout_constraintTop_toBottomOf="@id/recyclerView"
+            app:layout_constraintTop_toBottomOf="@id/viewPager"
             app:layout_constraintEnd_toEndOf="parent"/>
 
         <androidx.recyclerview.widget.RecyclerView
@@ -395,6 +361,41 @@
             android:layout_marginTop="8dp"
             android:orientation="horizontal"
             app:layout_constraintTop_toBottomOf="@id/tourGuideTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- RecyclerView for Recommended Destinations -->
+        <TextView
+            android:id="@+id/recommendationTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rekomendasi Wisata"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintTop_toBottomOf="@id/recyclerViewTourGuide"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/seeAllRecommendationText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lihat Semua >"
+            android:textSize="14sp"
+            android:textColor="@android:color/darker_gray"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintTop_toBottomOf="@id/recyclerViewTourGuide"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewDestination"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/recommendationTitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -408,7 +409,7 @@
             android:textStyle="bold"
             android:layout_marginTop="16dp"
             android:layout_marginStart="16dp"
-            app:layout_constraintTop_toBottomOf="@id/recyclerViewTourGuide"
+            app:layout_constraintTop_toBottomOf="@id/recyclerViewDestination"
             app:layout_constraintStart_toStartOf="parent"/>
 
         <TextView
@@ -420,7 +421,7 @@
             android:textColor="@android:color/darker_gray"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            app:layout_constraintTop_toBottomOf="@id/recyclerViewTourGuide"
+            app:layout_constraintTop_toBottomOf="@id/recyclerViewDestination"
             app:layout_constraintEnd_toEndOf="parent"/>
 
         <androidx.recyclerview.widget.RecyclerView

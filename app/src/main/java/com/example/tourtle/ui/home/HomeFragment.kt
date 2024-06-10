@@ -55,7 +55,7 @@ class HomeFragment : Fragment() {
             DestinationRecommendation(R.drawable.promo2, "Hawaii Waterpark", "Kolam Renang, Air, Makanan", "Kota Malang, Jawa Timur", "mulai Rp 90.000", "09.00 - 17.00 WIB")
         )
 
-        val recyclerView = binding.recyclerView
+        val recyclerView = binding.recyclerViewDestination
         recyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         recyclerView.adapter = DestinationRecommendationAdapter(rekomendasiDestinasiList)
 
@@ -88,7 +88,10 @@ class HomeFragment : Fragment() {
 
     private fun setupAction() {
         binding.menuDestination.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_destinationFragment)
+            findNavController().navigate(R.id.action_navigation_home_to_navigation_destination)
+        }
+        binding.menuTourguide.setOnClickListener {
+            findNavController().navigate(R.id.action_navigation_home_to_navigation_tour_guide)
         }
     }
 

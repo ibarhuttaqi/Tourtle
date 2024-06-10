@@ -46,7 +46,8 @@ class MainActivity : AppCompatActivity() {
         // melakukan penyesuaian tab yang aktif akan mengikuti parent fragment saat child fragment diklik
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-                R.id.destinationFragment -> navView.menu.findItem(R.id.navigation_home).isChecked = true
+                R.id.navigation_destination -> navView.menu.findItem(R.id.navigation_home).isChecked = true
+                R.id.navigation_tour_guide -> navView.menu.findItem(R.id.navigation_home).isChecked = true
                 R.id.photoPreviewFragment -> navView.menu.findItem(R.id.navigation_smart_camera).isChecked = true
                 else -> navView.menu.findItem(destination.id).isChecked = true
             }
@@ -84,5 +85,18 @@ class MainActivity : AppCompatActivity() {
             )
         }
         supportActionBar?.hide()
+    }
+
+    override fun onBackPressed() {
+        val navController = findNavController(R.id.nav_host_fragment_activity_main)
+        if (navController.currentDestination?.id == R.id.navigation_home) {
+            finishAffinity() // This will close all activities and exit the app
+        } else {
+            if (navController.popBackStack()) {
+                // Do nothing, let the navController handle the back stack
+            } else {
+                super.onBackPressed() // This will handle navigation back stack
+            }
+        }
     }
 }
