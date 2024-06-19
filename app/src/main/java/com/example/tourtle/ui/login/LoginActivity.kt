@@ -24,6 +24,7 @@ import com.example.tourtle.ViewModelFactory
 import com.example.tourtle.data.api.response.LoginResponse
 import com.example.tourtle.data.pref.UserModel
 import com.example.tourtle.databinding.ActivityLoginBinding
+import com.example.tourtle.ui.register.RegisterActivity
 import com.google.gson.Gson
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
@@ -56,6 +57,10 @@ class LoginActivity : AppCompatActivity() {
         spannable.setSpan(blueSpan, 21, text.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
 
         registerTextView.text = spannable
+
+        registerTextView.setOnClickListener {
+            startActivity(Intent(this, RegisterActivity::class.java))
+        }
     }
 
 //    private fun playAnimation() {

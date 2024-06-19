@@ -59,6 +59,21 @@ class WelcomeActivity : AppCompatActivity() {
         binding.signupButton.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
+
+        //skip transition
+        binding.skipTextView.setOnClickListener {
+//            binding.main.transitionToState(R.id.menu4, 2000)
+
+//            // Start the sequence of transitions
+//            transitionThroughStates()
+
+            when (binding.main.currentState) {
+                R.id.end -> transitionToEndStartingFrom(R.id.menu2)
+                R.id.menu2 -> transitionToEndStartingFrom(R.id.menu3)
+                R.id.menu3 -> transitionToEndStartingFrom(R.id.menu4)
+                R.id.menu4 -> {} // Do nothing if already at menu4
+            }
+        }
     }
 
     private fun playAnimation() {
@@ -69,6 +84,35 @@ class WelcomeActivity : AppCompatActivity() {
                 repeatCount = ObjectAnimator.INFINITE
                 repeatMode = ObjectAnimator.REVERSE
             }.start()
+        }
+    }
+
+    fun transitionThroughStates() {
+        val transitionTime = 500 // Transition time for each step in milliseconds
+        binding.main.setTransitionDuration(transitionTime)
+
+        // Sequentially transition to each state
+        binding.main.transitionToState(R.id.menu1)
+        binding.main.postDelayed({ binding.main.transitionToState(R.id.menu2) }, transitionTime.toLong())
+        binding.main.postDelayed({ binding.main.transitionToState(R.id.menu3) }, 2 * transitionTime.toLong())
+        binding.main.postDelayed({ binding.main.transitionToState(R.id.menu4) }, 3 * transitionTime.toLong())
+    }
+
+    fun transitionToEndStartingFrom(startStateId: Int) {
+        val transitionTime = 500 // Adjust this value as needed
+        when (startStateId) {
+            R.id.menu2 -> {
+                binding.main.transitionToState(R.id.menu2)
+                binding.main.postDelayed({ binding.main.transitionToState(R.id.menu3) }, transitionTime.toLong())
+                binding.main.postDelayed({ binding.main.transitionToState(R.id.menu4) }, 2 * transitionTime.toLong())
+            }
+            R.id.menu3 -> {
+                binding.main.transitionToState(R.id.menu3)
+                binding.main.postDelayed({ binding.main.transitionToState(R.id.menu4) }, transitionTime.toLong())
+            }
+            R.id.menu4 -> {
+                binding.main.transitionToState(R.id.menu4)
+            }
         }
     }
 

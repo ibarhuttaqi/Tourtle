@@ -1,5 +1,6 @@
 package com.example.tourtle.ui.register
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
@@ -23,6 +24,7 @@ import com.example.tourtle.R
 import com.example.tourtle.data.api.response.RegisterResponse
 import com.example.tourtle.data.api.retrofit.ApiConfig
 import com.example.tourtle.databinding.ActivityRegisterBinding
+import com.example.tourtle.ui.login.LoginActivity
 import com.google.gson.Gson
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
@@ -71,6 +73,10 @@ private lateinit var binding: ActivityRegisterBinding
         spannable.setSpan(blueSpan, 21, text.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
 
         loginTextView.text = spannable
+
+        loginTextView.setOnClickListener {
+            startActivity(Intent(this, LoginActivity::class.java))
+        }
 
         setupView()
         setupAction()

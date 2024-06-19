@@ -16,6 +16,37 @@
         android:scaleType="centerCrop"
         android:src="@drawable/splash_background" />
 
+    <TextView
+        android:id="@+id/skipTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="32dp"
+        android:text="Lewati"
+        android:textColor="@color/slate700"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+<!--    <TextView-->
+<!--        android:id="@+id/skipTextView"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginEnd="32dp"-->
+<!--        android:layout_marginTop="32dp"-->
+<!--        android:text="Lewati"-->
+<!--        android:textColor="@android:color/white"-->
+<!--        android:textSize="18sp"-->
+<!--        android:paddingVertical="8dp"-->
+<!--        android:paddingHorizontal="16dp"-->
+<!--        android:background="@drawable/skip_text_background"-->
+<!--        android:clickable="true"-->
+<!--        android:focusable="true"-->
+<!--        android:foreground="@drawable/skip_text_ripple"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
     <ImageView
         android:id="@+id/logoMenu1"
         android:layout_width="0dp"

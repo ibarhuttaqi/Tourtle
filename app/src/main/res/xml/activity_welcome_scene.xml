@@ -29,6 +29,15 @@
             motion:layout_constraintVertical_bias="0.3"
             motion:layout_constraintStart_toEndOf="parent"
             android:id="@+id/logoMenu3" />
+
+<!--        <Constraint-->
+<!--            android:id="@+id/skipTextView"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            motion:layout_constraintEnd_toEndOf="parent"-->
+<!--            motion:layout_constraintTop_toTopOf="parent"-->
+<!--            android:layout_marginEnd="16dp"-->
+<!--            android:layout_marginTop="16dp" />-->
     </ConstraintSet>
 
     <ConstraintSet android:id="@+id/end">
@@ -293,6 +302,15 @@
             motion:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="32dp"
             android:layout_marginEnd="32dp" />
+        <Constraint
+            android:id="@+id/skipTextView"
+            android:alpha="0"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            motion:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="32dp" />
     </ConstraintSet>
     <Transition
         motion:constraintSetStart="@+id/menu3"
